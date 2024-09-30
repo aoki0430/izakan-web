@@ -3,21 +3,8 @@ module.exports = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "assets.example.com",
+        hostname: "imgfp.hotp.jp",
         port: "",
-        pathname: "/account123/**",
-      },
-      {
-        protocol: "https",
-        hostname: "lh3.googleusercontent.com",
-        port: "",
-        // pathname: "*",
-      },
-      {
-        protocol: "https",
-        hostname: "via.placeholder.com",
-        port: "",
-        // pathname: "*",
       },
     ],
   },

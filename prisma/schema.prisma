@@ -5,10 +5,59 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Shop {
+    id              String @id @default(uuid())
+    name            String
+    nameKana        String
+    logo_image      String
+    address         String
+    lat             Float
+    lng             Float
+    phone           String
+    google_place_id String
+    access          String
+    station_name    String
+    genre           Genre  @relation(fields: [genreId], references: [id])
+    genreId         String
+    budget          Budget @relation(fields: [budgetId], references: [id])
+    budgetId        String
+    catch           String
+    capacity        Int
+    url             String
+    photo_l         String
+    photo_m         String
+    photo_s         String
+    open            String
+    close           String
+    free_drink      String
+    free_food       String
+    private_room    String
+    card            String
+    non_smoking     String
+    parking         String
+    wifi            String
+    tabelogScore    Float
+    googleMapScore  Float
+}
+
+model Genre {
+    id    String @id
+    name  String
+    catch String
+    shops Shop[]
+}
+
+model Budget {
+    id      String @id
+    name    String
+    average String
+    shops   Shop[]
 }
